@@ -1,6 +1,50 @@
-from trans import trans as tr
+
+
 from fractions import Fraction as Fr
 
+
+def tr(times, number):
+    
+    print(number)
+    p2 = []
+    p = number
+    print('-'*80)
+    if times != 'True':
+        try:
+            for i in range(times):
+                try:
+                    p1 = int(p)
+                except ValueError:
+                    print('please enter number')
+                    break
+                
+                
+                p2.append(p1)
+                p -= p1
+                
+                
+                try:
+                    p = Fr(1/p)
+                    
+                except ZeroDivisionError:
+                    return p2
+        except TypeError:
+            print('please enter number')
+    
+    else:
+        while 1:
+            try:
+                    p1 = int(p)
+            except ValueError:
+                print('please enter number')
+                break
+            print(p1)
+            p -= p1
+            try:
+                p = Fr(1/p)
+            except ZeroDivisionError:
+                break
+    return p2
 
 def transReturn(return_obj='last', times=10,item=3.1415926,mode=1):
     trans = tr(times, item)
